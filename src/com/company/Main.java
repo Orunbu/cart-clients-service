@@ -8,7 +8,7 @@ public class Main{
         laptopRog.setName("Asus Rog Zephyrus 14");
         laptopRog.setDiscount(0);
         laptopRog.setPrice(220000);
-        System.out.println(laptopRog);
+        laptopRog.setQuantity(1);
 
         ClientProduct mouse = new ClientProduct();
         mouse.setName("Steelseries rival pro");
@@ -24,5 +24,21 @@ public class Main{
         test.setName("Abil");
         test.setEmail("abil.@mail.ru");
         test.setCart(new Cart(clientProducts));
+
+        calculateClientProductAmount(test);
+    }
+
+    public static void calculateClientProductAmount (Client client) {
+        double totalSum = 0;
+        for (int i = 0; i < client.getCart().getClientProducts().length; i++) {
+             ClientProduct clientProduct = client.getCart().getClientProducts()[i];
+             double sumWithoutDiscount = clientProduct.getPrice() * clientProduct.getQuantity();
+             double finalSum = sumWithoutDiscount - clientProduct.getDiscount()
+              * clientProduct.getQuantity() * sumWithoutDiscount/100;
+             clientProduct.setAmount(finalSum);
+             totalSum += finalSum;
+             System.out.println("Sum of " + clientProduct.getName() + "" + clientProduct.getAmount());
+        }
+        System.out.println("Total sum is " + totalSum);
     }
 }
