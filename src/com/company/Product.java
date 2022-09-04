@@ -27,4 +27,13 @@ public class Product {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +"\n";
+
+    }
 }
