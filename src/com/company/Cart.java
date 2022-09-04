@@ -1,2 +1,5 @@
-package com.company;public class Cart {
+package com.company;
+
+public class Cart {
+    private ClientProduct[] clientProducts;
 }
