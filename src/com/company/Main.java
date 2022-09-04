@@ -1,2 +1,3 @@
-package com.company;public class Main {
+package com.company;
+public class Main {
 }
